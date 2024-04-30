@@ -27,5 +27,5 @@ jobs:
         env:
           CURRENT_DATETIME: ${{ steps.timestamp.outputs.timestamp }}
         run: |
-          docker build -t argocd2 .
+          docker build -t zertyr/argocd2:$CURRENT_DATETIME .
           docker push zertyr/argocd2:$CURRENT_DATETIME
