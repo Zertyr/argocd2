@@ -24,3 +24,14 @@ jobs:
       uses: actions/checkout@v3
       with:
         ref: main
+        
+    - name: Update Deployment Image Tag
+      run: |
+        sed -i "s|${{ secrets.DOCKER_USERNAME }}/argocd2:.*|${{ secrets.DOCKER_USERNAME }}/argocd2:${{ github.sha }}|g" ./deployment/deployment.yaml
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action"
+        git add .
+        git commit -am "Update image tag to ${{ github.sha }}" || echo "No changes to commit"
+        git push origin main
+    
+   
