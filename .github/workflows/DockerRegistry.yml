@@ -26,7 +26,7 @@ jobs:
         export CURRENT_DATETIME=$(date '+%Y%m%d%H%M%S')
 
     - name: Afficher la valeur current datetime
-      run: echo "${{ CURRENT_DATETIME }}"
+      run: echo "${{ $CURRENT_DATETIME }}"
 
     - name: Construction de l'image Docker
       run: docker build -t argocd2:$CURRENT_DATETIME .
