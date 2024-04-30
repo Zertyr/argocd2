@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: argocd2
+  template:
+    metadata:
+      labels:
+        app: argocd2
+    spec:
+      containers:
+      - name: myapp
+        image: zertyr/argocd2
+        ports:
+        - containerPort: 80
