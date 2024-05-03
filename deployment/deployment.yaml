@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: zertyr/argocd2:628397703e85efab97cbd9f5a220c7cff418abbb
+        image: zertyr/argocd2:286772a9a8f7192574785482d99a359dc912d6d6
         ports:
         - containerPort: 80
 
